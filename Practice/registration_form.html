@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #efeafc;
+    text-align: center;
+    margin: 0;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #888888;
+}
+
+h1 {
+    text-decoration: underline;
+}
+
+h3 {
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+#tnc {
+    margin-top: 10px;
+}
+
+#submit, #reset {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#submit:hover {
+    background-color: #d59047;
+}
+
+#reset:hover {
+    background-color: #333;
+}
+
+    </style>
+</head>
+<body>
+    <form action="submit_form.php" method="post" onsubmit="return showSuccessMessage()">
+        <h1><u>Registration Form</u></h1>
+
+        <br>
+
+        <h3>General Information: </h3>
+        <label for="name"><b>Name: </b></label>
+        <input type="text" name="name" required>
+
+        <br><br>
+
+        <label for="profile"><b>Profile Photo: </b></label>
+        <input type="file" name="filename" id="profile" accept="image/*" required>
+
+        <br><br>
+
+        <label for="email"><b>Email: </b></label>
+        <input type="email" name="email" id="email">
+
+        <br><br>
+
+        <label for="sex"><b>Sex: </b></label>
+        <input type="radio" name="sex" value="Male" id="male">
+        <label for="male">Male</label>
+        <input type="radio" name="sex" value="Female" id="female">
+        <label for="female">Female</label>
+        <input type="radio" name="sex" value="Other" id="other">
+        <label for="other">Other</label>
+        
+        <br><br>
+
+        <label for="country"><b>Country: </b></label>
+        <select name="country" id="country_option" required>
+            <option value="india" selected>India</option>
+            <option value="us">USA</option>
+            <option value="australia">Australia</option>
+        </select>
+
+        <br><br>
+
+        <label for="address"><b>Address: </b></label>
+        <textarea name="address" id="address" cols="30" rows="4"></textarea>
+
+        <br><br>
+
+        <h3>Account Password: </h3>
+
+        <p>Create a new Password below for the account login.</p>
+
+        <label for="pass"><b>New Password: </b></label>
+        <input type="password" name="pass" id="pass" required>
+        <br><br>
+
+        <label for="repass"><b>Re-enter Password: </b></label>
+        <input type="password" name="repass" id="repass" required>
+        
+        
+        <br><br>
+
+        <input type="checkbox" name="tnc" id="tnc" required checked>
+        <label for="tnc">Agree to the Terms and Conditions.</label>
+
+        <br> <br>
+
+        <input type="reset" name="reset" id="reset">
+        <input type="submit" name="submit" id="submit">
+
+        <div id="successMessage" style="display: none; text-align: center; color: green;">
+            Successful Submission!
+        </div>
+    </form>
+
+    <script>
+        function showSuccessMessage() {
+            // You can add form validation here if needed
+
+            // Display the success message
+            document.getElementById('successMessage').style.display = 'block';
+
+            // Prevent the form from submitting
+            return false;
+        }
+    </script>
+</body>
+</html>
